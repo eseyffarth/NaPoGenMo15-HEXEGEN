@@ -44,7 +44,12 @@ for word in words:
 def make_verse():
     verse = []
     for i in range(4):
-        verse.append(random.sample(dactyl_words, 1)[0])
+        # decide whether to generate a dactyl or a spondee
+        choice = random.randint(0, 2)
+        if choice == 0:
+            verse.append(random.sample(dactyl_words, 1)[0])
+        else:
+            verse.append(random.sample(spondee_words, 1)[0])
     verse.append(random.sample(dactyl_words, 1)[0])
     verse.append(random.sample(final_words, 1)[0])
     return " ".join(verse)
